@@ -5,7 +5,7 @@
     <div class="card-header">
       <h3 class="search-title">
         
-        <a href="{% url 'detail' globus_portal_framework.index result.subject %}">{{result.subject|default:'Result'}}</a>
+	      <a href="{% url 'detail' globus_portal_framework.index result.subject %}">{{result.subject|default:'Result'}}</a>
         
       </h3>
     </div>
@@ -16,7 +16,7 @@
              
             {% for name in result.all.0.keys %}
             
-              {% if name in "name,description,email,source_id,version_id" %}
+              {% if name in "name,url,description,email,source_id,version_id" %}
                 <th>{{name}}</th>
               {% endif %}
             {% endfor %}
@@ -25,7 +25,7 @@
             
             {% for name, value in result.all.0.items %}
             
-              {% if name in "name,description,email,source_id,version_id" %}
+              {% if name in "name,url,description,email,source_id,version_id" %}
               <td>{{value}}</td>
               {% endif %}
             {% endfor %}

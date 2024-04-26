@@ -1,6 +1,7 @@
 
 from django.apps import AppConfig
 from dsaas_portal import checks
+from dsaas_portal import fields
 
 class Dsaasportal(AppConfig):
     name = 'DSaaS'
@@ -16,6 +17,10 @@ SEARCH_INDEXES = {
             {
                 'name': 'Name',
                 'field_name': 'name'
+            },
+            {
+                'name': 'URL',
+                'field_name': 'url'
             },
             {
                 'name': 'Description',
@@ -53,6 +58,13 @@ SEARCH_INDEXES = {
                 'name': 'Date Created',
                 'field_name': 'date_created'
             }
+        ],
+        "fields": [
+            # Calls a function with your search record as a parameter
+            ("title", fields.title),
+            ("globus_app_link", fields.globus_app_link),
+            ("https_url", fields.https_url),
+            ("copy_to_clipboard_link", fields.https_url),
         ],
     }
 }
